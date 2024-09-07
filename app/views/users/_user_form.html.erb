@@ -1,0 +1,44 @@
+<%= form_with model: user do |f|%>
+    <div>
+        <%=f.label :name%>
+        <%=f.text_field :name%>
+    </div>
+
+    <div>
+        <%=f.label :email%>
+        <%=f.email_field :email%>
+    </div>
+
+    <div>
+        <%=f.label :due_date_reminder_interval, 'Number of days to remind before'%>
+        <%=f.number_field :due_date_reminder_interval, min: 0%>
+    </div>
+   
+    <div>
+        <%=f.label :time_zone%>
+        <%=f.text_field :time_zone, list: 'time_zones'%>
+        <datalist id='time_zones'>
+            <%ActiveSupport::TimeZone.all.sort_by(&:name).each do |time_zone|%>
+                <option value="<%= time_zone.name%>"> <%= time_zone.name%> </option>
+            <%end%>
+        </datalist>
+    </div>
+
+    <div>
+        <%=f.label :due_date_reminder_time, 'Prefered time of the day to recieve reminder'%>
+        <%=f.time_field :due_date_reminder_time, list:'reminder_time'%>
+        <datalist id='reminder_time'>
+                <option value="8:00"></option>
+                <option value="9:00"></option>
+                <option value="10:00"></option>
+        </datalist>
+    </div>
+    <div>
+        <ul>
+            <% user.errors.full_messages.each do |error|%>
+                <li><%=error%></li>
+            <%end%>
+        </ul>
+    </div>
+    <%=f.submit "add user"%>
+<%end%>
