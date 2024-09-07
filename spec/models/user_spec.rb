@@ -7,16 +7,18 @@ RSpec.describe User, type: :model do
 
   describe '.create' do
     context 'when creating user with valid data' do
-      it { expect(user.valid?).to be true }
+      it 'creates the user successfully' do
+        expect(user.valid?).to be true
+      end
     end
 
     context 'when creating user invalid data' do
-      it do
+      it 'responds with error message for invalid email' do
         bad_email_user.validate
         expect(bad_email_user.errors.full_messages.first).to eq 'Email is invalid'
       end
 
-      it do
+      it 'responds with error message for invalid name' do
         bad_name_user.validate
         expect(bad_name_user.errors.full_messages.first).to eq "Name can't be blank"
       end
