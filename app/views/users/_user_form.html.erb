@@ -10,6 +10,11 @@
     </div>
 
     <div>
+        <%=f.label :send_due_date_reminder%>
+        <%=f.check_box :send_due_date_reminder%>
+    </div>
+
+    <div>
         <%=f.label :due_date_reminder_interval, 'Number of days to remind before'%>
         <%=f.number_field :due_date_reminder_interval, min: 0%>
     </div>
@@ -30,5 +35,5 @@
             <%end%>
         </ul>
     </div>
-    <%=f.submit "add user"%>
+    <%=f.submit "save user"%>
 <%end%>

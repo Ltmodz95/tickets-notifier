@@ -1,1 +1,12 @@
-<p><%= @user.name%></p>
+ <p>Name: <%= @user.name %> </p>
+    <p>Email: <%= @user.email %> </p>
+    <p>Send Reminder: <%= @user.send_due_date_reminder %> </p>
+    <p>Preferred Time: <%= @user.due_date_reminder_time.strftime("%H:%M") %> </p>
+    <p>Reminder Interval: <%= @user.due_date_reminder_interval >= 1 ? "#{@user.due_date_reminder_interval} days" : "Same Day" %> </p>
+    
+    <p>Time Zone: <%= @user.time_zone %> </p>
+    <%=link_to 'edit user', edit_user_path(@user)%>
+      <%= link_to "Delete", user_path(@user), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>

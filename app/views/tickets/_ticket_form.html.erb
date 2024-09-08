@@ -18,6 +18,15 @@
         <%= f.select :user_id, users%>
     </div>
     <div>
+        <%= f.label :status%>
+        <%= f.select :status, Ticket.statuses%>
+    </div>
+
+    <div>
+        <%= f.label :progress%>
+        <%= f.number_field :progress, min:0,max:100%>
+    </div>
+    <div>
         <ul>
             <% ticket.errors.full_messages.each do |error|%>
                 <li><%=error%></li>
@@ -25,5 +34,5 @@
         </ul>
     </div>
 
-    <%= f.submit 'Add Ticket'%>
+    <%= f.submit 'Save Ticket'%>
 <%end%>

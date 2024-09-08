@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: %i[show edit]
-  before_action :set_users, only: %i[new create]
+  before_action :set_ticket, only: %i[show edit destroy update]
+  before_action :set_users, only: %i[new create edit]
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.includes(:assignee).all
   end
 
   def show; end
@@ -22,9 +22,17 @@ class TicketsController < ApplicationController
 
   def edit; end
 
-  def update; end
+  def update
+    @ticket.update(ticket_params)
+    return redirect_to @ticket if @ticket.save
 
-  def destory; end
+    render :new, status: :unprocessable_entityend
+  end
+
+  def destroy
+    @ticket.destroy
+    redirect_to tickets_path
+  end
 
   private
 

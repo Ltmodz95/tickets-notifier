@@ -1,3 +1,13 @@
 <% @tickets.each do |ticket|%>
-    <p><%= ticket.title %></p>
+    <div>
+        <p>Title: <%= ticket.title %></p>
+        <p>description: <%= ticket.description %></p>
+        <p>due date: <%= ticket.due_date %></p>
+        <p>status: <%= ticket.status %></p>
+        <p>progress: <%= ticket.progress %></p> 
+        <p>Assigned to: <%=link_to ticket.assignee.name, user_path(ticket.assignee) %></p> 
+        <%= link_to 'Edit ticket', edit_ticket_path(ticket)%>
+        <%= link_to 'Show ticket', ticket_path(ticket)%>
+    </div>
+    <br>
 <%end%>

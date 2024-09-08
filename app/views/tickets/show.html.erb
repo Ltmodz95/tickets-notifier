@@ -1,1 +1,12 @@
-<%= @ticket.title%>
+<div>
+        <p>Title: <%= @ticket.title %></p>
+        <p>description: <%= @ticket.description %></p>
+        <p>due date: <%= @ticket.due_date %></p>
+        <p>status: <%= @ticket.status %></p>
+        <p>progress: <%= @ticket.progress %></p> 
+        <%= link_to 'Edit ticket', edit_ticket_path(@ticket)%>
+        <%= link_to "Delete", ticket_path(@ticket), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+    </div>

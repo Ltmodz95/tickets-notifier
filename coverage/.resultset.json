@@ -11,12 +11,16 @@
       },
       "/Users/mohamedelsayed/Desktop/Practicing/Rails/tickets-notifier/app/helpers/tickets_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/Users/mohamedelsayed/Desktop/Practicing/Rails/tickets-notifier/app/helpers/users_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
@@ -53,6 +57,8 @@
       },
       "/Users/mohamedelsayed/Desktop/Practicing/Rails/tickets-notifier/app/mailers/user_mailer.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -87,6 +93,8 @@
       },
       "/Users/mohamedelsayed/Desktop/Practicing/Rails/tickets-notifier/app/models/ticket.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -124,7 +132,9 @@
           1,
           1,
           1,
+          1,
           null,
+          1,
           5,
           null,
           1,
@@ -173,6 +183,8 @@
       },
       "/Users/mohamedelsayed/Desktop/Practicing/Rails/tickets-notifier/app/sidekiq/notification_reminder_job.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -243,6 +255,8 @@
       },
       "/Users/mohamedelsayed/Desktop/Practicing/Rails/tickets-notifier/app/controllers/tickets_controller.rb": {
         "lines": [
+          null,
+          null,
           0,
           0,
           0,
@@ -266,7 +280,15 @@
           0,
           null,
           0,
+          0,
+          0,
           null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
           0,
           null,
           0,
@@ -289,6 +311,8 @@
       },
       "/Users/mohamedelsayed/Desktop/Practicing/Rails/tickets-notifier/app/controllers/users_controller.rb": {
         "lines": [
+          null,
+          null,
           0,
           0,
           0,
@@ -308,6 +332,12 @@
           null,
           0,
           null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0,
           null,
           0,
@@ -343,6 +373,6 @@
         }
       }
     },
-    "timestamp": 1725823672
+    "timestamp": 1725827702
   }
 }

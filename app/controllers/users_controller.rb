@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit]
+  before_action :set_user, only: %i[show edit update]
   def index
     @users = User.all
   end
@@ -19,7 +19,13 @@ class UsersController < ApplicationController
 
   def edit; end
 
-  def update; end
+  def update
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
   def show; end
 

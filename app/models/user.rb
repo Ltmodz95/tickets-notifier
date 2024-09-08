@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_many :tickets
-  validates_presence_of :email, :name, :time_zone
+  has_many :tickets, dependent: :destroy
+  validates_presence_of :email, :name
+  validates_uniqueness_of :email
   validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
 
+  validates_presence_of :time_zone, :due_date_reminder_time, :due_date_reminder_interval, if: :send_due_date_reminder?
   scope :due_date_reminder_active, -> { where(send_due_date_reminder: true) }
 
   def preferred_time
