@@ -15,7 +15,7 @@ Is to enqueue a job when ever a `ticket` is made, however this approach has mult
   - Always keeping track of the jobs and deleting jobs and renqueuing them if `due_date` changed for `ticket` or `due_date_reminder_time` or `interval` changes for the `user`
 
 #### Verdict
-Using the first approach lets us not worry about if something change or not in the data that decides when the ticket is enqueued
+Using the first approach lets us not worry about if something change or not in the data that decides when the ticket is enqueued, Also wont fill the queues with lots of jobs that could wait days to be executed
 
 
 ### Installation
