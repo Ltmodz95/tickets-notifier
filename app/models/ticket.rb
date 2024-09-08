@@ -4,6 +4,9 @@ class Ticket < ApplicationRecord
 
   validates_presence_of :title, :description
 
+  scope :not_completed, -> { where.not(status: 'completed') }
+  scope :not_reminded, -> { where(reminder_sent: false) }
+
   def remind_at
     # getting back the time at which this task should be notified about
     # the date should be something bigger than the prefered_time of the user

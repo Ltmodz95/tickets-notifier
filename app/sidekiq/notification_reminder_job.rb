@@ -16,7 +16,7 @@ class NotificationReminderJob
       p user.preferred_time == current_time.in_time_zone(user.time_zone)
       next unless user.preferred_time == current_time.in_time_zone(user.time_zone)
 
-      notify_due_date_approaching(user, user.tickets)
+      notify_due_date_approaching(user, user.tickets.not_completed.not_reminded)
     end
   end
 
