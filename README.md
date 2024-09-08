@@ -47,9 +47,9 @@ rails s
 
 
 ### Usage
-- After running the app navigate to `localhost:3000` you will see a blank page with a link to `create user` create one and set the desired timezone and other data
-- After that create ticket from the user page (keep in mind all tickets are created in UTC time)
-- When the preferred time of the user come and the ticket falls with in bounds a mail will get triggered for it
+- After running the app navigate to `localhost:3000` you will see a blank page with a link to `create user` create one and set the desired timezone and other data.
+- After that create ticket from the user page (keep in mind all tickets are created in UTC time) it will be adjusted to the user's timezone when sending reminders only.
+- When the preferred time of the user come and the ticket falls with in bounds a mail will get triggered for it.
 
 ### Tests
 To run tests run the following command
@@ -60,7 +60,7 @@ To run tests run the following command
 ### Further Development
   - Improving the ui of the application
   - Writing integration tests for the controllers
-  - Handling out of scope cases such: if task is 100% progress then mark it as completed
+  - Handling out of scope cases such: if ticket is 100% progress then mark it as completed
   - Dockerizing the whole application and using docker-compose for it
   
   
