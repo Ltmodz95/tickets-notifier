@@ -6,7 +6,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     send_due_date_reminder { false }
     due_date_reminder_interval { 1 }
-    due_date_reminder_time { Time.current.in_time_zone(time_zone).strftime('%H:%M') }
+    due_date_reminder_time { '10:00' }
     time_zone { 'Cairo' }
 
     trait :with_invalid_name do

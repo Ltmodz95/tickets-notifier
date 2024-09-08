@@ -2,8 +2,7 @@ class NotificationReminderJob
   include Sidekiq::Job
 
   def perform(*_args)
-    users = User.includes(:tickets).all
-
+    users = User.due_date_reminder_active.includes(:tickets).all
     # keeping track of the current_time so if the email processing took more than a minute we
     # dont miss out on some users
     current_time = Time.current.beginning_of_minute
@@ -11,9 +10,6 @@ class NotificationReminderJob
     users.each do |user|
       # comparing the user's preferred_time to be notified in with the current time
       # to check which users should we send them reminders in this minute
-      p user.preferred_time
-      p current_time.in_time_zone(user.time_zone)
-      p user.preferred_time == current_time.in_time_zone(user.time_zone)
       next unless user.preferred_time == current_time.in_time_zone(user.time_zone)
 
       notify_due_date_approaching(user, user.tickets.not_completed.not_reminded)
