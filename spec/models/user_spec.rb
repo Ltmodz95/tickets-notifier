@@ -24,4 +24,20 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '.preferred_time' do
+    it 'returns preferred time for reminder notifications' do
+      preferred_time = Time.current.in_time_zone(user.time_zone)
+                           .change(hour: user.due_date_reminder_time.hour,
+                                   min: user.due_date_reminder_time.min)
+
+      expect(user.preferred_time).to eql preferred_time
+    end
+  end
+
+  describe '.preferred_communication' do
+    it 'returns preferred communication for user' do
+      expect(user.preferred_communication).to eql 'email'
+    end
+  end
 end

@@ -28,7 +28,6 @@ class NotificationReminderJob
       # the notification, it might be out of working hours or at midnight
       next unless ticket.remind_at >= user.preferred_time && ticket.remind_at <= user.preferred_time.end_of_day
 
-      puts ticket
       # this service is responsible for just routing the notifications based on the
       # user's preferred communication method for example email,sms
       NotificationService.new(ticket.id, user.preferred_communication).call

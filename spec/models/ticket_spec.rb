@@ -21,4 +21,12 @@ RSpec.describe Ticket, type: :model do
       end
     end
   end
+
+  describe '#remind_at' do
+    it 'returns the date to remind at' do
+      assignee = ticket.assignee
+      remind_at = ticket.due_date.in_time_zone(assignee.time_zone) - assignee.due_date_reminder_interval.days
+      expect(ticket.remind_at).to eql remind_at
+    end
+  end
 end
