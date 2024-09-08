@@ -4,6 +4,7 @@
         <p>due date: <%= @ticket.due_date %></p>
         <p>status: <%= @ticket.status %></p>
         <p>progress: <%= @ticket.progress %></p> 
+        <p>Assigned to: <%=link_to @ticket.assignee.name, user_path(@ticket.assignee) %></p> 
         <%= link_to 'Edit ticket', edit_ticket_path(@ticket)%>
         <%= link_to "Delete", ticket_path(@ticket), data: {
                     turbo_method: :delete,

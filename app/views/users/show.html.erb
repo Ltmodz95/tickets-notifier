@@ -6,7 +6,11 @@
     
     <p>Time Zone: <%= @user.time_zone %> </p>
     <%=link_to 'edit user', edit_user_path(@user)%>
-      <%= link_to "Delete", user_path(@user), data: {
+    <%= link_to "Delete", user_path(@user), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %>
+
+    <div>
+      <%=link_to 'create ticket', new_ticket_path%>
+    </div>

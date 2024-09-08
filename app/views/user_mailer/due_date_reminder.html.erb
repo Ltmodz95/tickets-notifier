@@ -1,1 +1,3 @@
-<%= @ticket.title %>
+<p>Hi, <%= @assignee.name%></p>
+
+Ticket <b><%= @ticket.title %></b> is due in <%= @assignee.due_date_reminder_interval > 1 ? "#{@assignee.due_date_reminder_interval} days" : "Today"%>
