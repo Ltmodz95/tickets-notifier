@@ -21,12 +21,7 @@
 
     <div>
         <%=f.label :due_date_reminder_time, 'Prefered time of the day to recieve reminder'%>
-        <%=f.time_field :due_date_reminder_time, list:'reminder_time'%>
-        <datalist id='reminder_time'>
-                <option value="8:00"></option>
-                <option value="9:00"></option>
-                <option value="10:00"></option>
-        </datalist>
+        <%=f.time_select :due_date_reminder_time%>
     </div>
     <div>
         <ul>

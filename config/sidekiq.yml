@@ -1,0 +1,13 @@
+:queues:
+  - critical
+  - default
+  - reminders
+  - mailers
+tasks: &tasks
+  NotificationReminderJob:
+    cron: "* * * * *"
+    queue: reminders
+    description: "sends a reminder notification based on the reminder interval for each user"
+:scheduler:
+  :schedule:
+    <<: *tasks

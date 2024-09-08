@@ -5,6 +5,8 @@ class User < ApplicationRecord
   validates_presence_of :email, :name, :time_zone
   validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
 
+  scope :due_date_reminder_active, -> { where(send_due_date_reminder: true) }
+
   def preferred_time
     # getting the prefered time of the day that the user wants to recieve
     # notification for today.
