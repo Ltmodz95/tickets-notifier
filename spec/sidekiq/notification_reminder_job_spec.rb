@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 RSpec.describe NotificationReminderJob, type: :job do
   # check if how many notification_service calls will be made

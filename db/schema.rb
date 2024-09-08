@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,32 +12,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_08_152427) do
+ActiveRecord::Schema[7.1].define(version: 20_240_908_152_427) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "tickets", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.bigint "user_id"
-    t.datetime "due_date"
-    t.integer "status", default: 0
-    t.integer "progress", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "reminder_sent", default: false
-    t.index ["user_id"], name: "index_tickets_on_user_id"
+  create_table 'tickets', force: :cascade do |t|
+    t.string 'title'
+    t.text 'description'
+    t.bigint 'user_id'
+    t.datetime 'due_date'
+    t.integer 'status', default: 0
+    t.integer 'progress', default: 0
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.boolean 'reminder_sent', default: false
+    t.index ['user_id'], name: 'index_tickets_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.boolean "send_due_date_reminder", default: false
-    t.integer "due_date_reminder_interval", default: 1
-    t.time "due_date_reminder_time"
-    t.string "time_zone", limit: 50
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.string 'email'
+    t.boolean 'send_due_date_reminder', default: false
+    t.integer 'due_date_reminder_interval', default: 1
+    t.time 'due_date_reminder_time'
+    t.string 'time_zone', limit: 50
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
-
 end

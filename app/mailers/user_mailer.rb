@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserMailer < ApplicationMailer
   default from: 'remainder@planrada.com'
   after_action :mark_reminder_sent
