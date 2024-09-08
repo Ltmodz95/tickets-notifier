@@ -11,6 +11,9 @@ class NotificationReminderJob
     users.each do |user|
       # comparing the user's preferred_time to be notified in with the current time
       # to check which users should we send them reminders in this minute
+      p user.preferred_time
+      p current_time.in_time_zone(user.time_zone)
+      p user.preferred_time == current_time.in_time_zone(user.time_zone)
       next unless user.preferred_time == current_time.in_time_zone(user.time_zone)
 
       notify_due_date_approaching(user, user.tickets)
@@ -25,6 +28,7 @@ class NotificationReminderJob
       # the notification, it might be out of working hours or at midnight
       next unless ticket.remind_at >= user.preferred_time && ticket.remind_at <= user.preferred_time.end_of_day
 
+      puts ticket
       # this service is responsible for just routing the notifications based on the
       # user's preferred communication method for example email,sms
       NotificationService.new(ticket.id, user.preferred_communication).call

@@ -5,7 +5,8 @@ module Notifications
   # for the users
   class EmailNotification < Notification
     def self.notify(ticket_id)
-      puts "Sending email for ticket # #{ticket_id}"
+      UserMailer.with(ticket_id:).due_date_reminder.deliver_now
+      # mark the ticket as has_reminder sent
     end
   end
 end
