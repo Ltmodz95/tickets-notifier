@@ -1,3 +1,8 @@
+
+<div>
+    <br>
+<%=link_to 'create ticket', new_ticket_path%>
+</div>
 <% @tickets.each do |ticket|%>
     <div>
         <p>Title: <%= ticket.title %></p>

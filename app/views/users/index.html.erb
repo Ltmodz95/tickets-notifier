@@ -3,6 +3,11 @@
 <%=link_to 'create user', new_user_path%>
 </div>
 
+<div>
+    <br>
+<%=link_to 'Tickets', tickets_path%>
+</div>
+
 <% @users.each do |user |%>
 <div>
     <p>Name: <%= user.name %> </p>
@@ -13,6 +18,7 @@
     
     <p>Time Zone: <%= user.time_zone %> </p>
     <%=link_to 'edit user', edit_user_path(user)%>
+    <%=link_to 'show user', user_path(user)%>
       <%= link_to "Delete", user_path(user), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
