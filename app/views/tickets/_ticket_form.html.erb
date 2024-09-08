@@ -11,12 +11,18 @@
 
     <div>
         <%= f.label :due_date%>
-        <%= f.date_field :due_date%>
+        <%= f.datetime_field :due_date%>
     </div>
-
     <div>
-        <%= f.label :due_date%>
-        <%= f.select :assignee, users%>
+        <%= f.label :assignee%>
+        <%= f.select :user_id, users%>
+    </div>
+    <div>
+        <ul>
+            <% ticket.errors.full_messages.each do |error|%>
+                <li><%=error%></li>
+            <%end%>
+        </ul>
     </div>
 
     <%= f.submit 'Add Ticket'%>

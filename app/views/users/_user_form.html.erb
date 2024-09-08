@@ -16,12 +16,7 @@
    
     <div>
         <%=f.label :time_zone%>
-        <%=f.text_field :time_zone, list: 'time_zones'%>
-        <datalist id='time_zones'>
-            <%ActiveSupport::TimeZone.all.sort_by(&:name).each do |time_zone|%>
-                <option value="<%= time_zone.name%>"> <%= time_zone.name%> </option>
-            <%end%>
-        </datalist>
+        <%=f.time_zone_select :time_zone%>
     </div>
 
     <div>

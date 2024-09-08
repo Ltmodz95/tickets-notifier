@@ -7,7 +7,7 @@ FactoryBot.define do
     send_due_date_reminder { false }
     due_date_reminder_interval { 1 }
     due_date_reminder_time { Time.current.in_time_zone(time_zone).strftime('%H:%M') }
-    time_zone { 'UTC' }
+    time_zone { 'Cairo' }
 
     trait :with_invalid_name do
       name { '' }
