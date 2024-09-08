@@ -1,3 +1,5 @@
+:logfile: ../log/sidekiq.log
+:verbose: false
 :queues:
   - critical
   - default
